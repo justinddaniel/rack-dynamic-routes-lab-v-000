@@ -3,7 +3,7 @@ class Application
   resp = Rack::Response.new
   req = Rack::Request.new(env)
   item_name_array = @@items.collect {|i| i.name}
-    
+
     if req.path.match(/items/)
       search_term = req.params["item"]
       if item_name_array.include?(search_term)
