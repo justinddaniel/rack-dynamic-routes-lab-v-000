@@ -14,7 +14,7 @@ class Application
       search_term = req.path.split("/items/").last
       if item_name_array.include?(search_term)
         search_item = @@items.select{ |i| i.name == "#{search_term}" }
-        item_price = search_item.price
+        item_price = search_item[0].price
         resp.write "#{item_price}"
       else
         resp.write "Item not found"
