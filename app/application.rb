@@ -5,10 +5,13 @@ class Application
   def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  item_name_array = []
-  @@items.each do |i|
+  item_name_array = []  #The .find method on lines 18-21 could have accomplished this 
+  @@items.each do |i|   #much more efficiently. 
     item_name_array << i.name
   end
+
+  #      if item =@@items.find{|i| i.name == item_name}
+  #      resp.write item.price   <= use this insead of lines 18-21 
 
     if req.path.match(/items/)
       search_term = req.path.split("/items/").last
