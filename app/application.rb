@@ -2,6 +2,7 @@ class Application
   def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
+  item_name_array = []
   item_name_array = @@items.collect {|i| i.name}
 
     if req.path.match(/items/)
