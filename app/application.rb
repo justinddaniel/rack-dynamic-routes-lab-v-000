@@ -12,7 +12,6 @@ class Application
 
     if req.path.match(/items/)
       search_term = req.params["item"]
-      binding.pry
       if item_name_array.include?(search_term)
         search_item = @@items.select{ |i| i.name == "#{search_term}" }
         item_price = search_item.price
